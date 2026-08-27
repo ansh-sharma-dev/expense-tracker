@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style01.css">
+
+    <title>Expense Tracker</title>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- HEADER -->
+        <header class="top-header">
+
+            <div class="brand">
+
+                <div class="brand-logo">
+                    <span>₹</span>
+                </div>
+
+                <div>
+                    <h1>Expense Tracker</h1>
+                    <p>Smart control over your money</p>
+                </div>
+
+            </div>
+
+            <div class="header-badge">
+                PERSONAL FINANCE
+            </div>
+
+        </header>
+
+
+        <!-- HERO BALANCE -->
+        <section class="hero-card">
+
+            <div class="hero-glow glow-one"></div>
+            <div class="hero-glow glow-two"></div>
+
+            <div class="hero-top">
+
+                <div>
+                    <p class="hero-label">CURRENT BALANCE</p>
+
+                    <h2>
+                        ₹<span id="summaryBalance">0</span>
+                    </h2>
+                </div>
+
+                <div class="balance-icon">
+                    ↗
+                </div>
+
+            </div>
+
+
+            <div class="hero-bottom">
+
+                <div class="hero-stat">
+                    <span class="stat-icon income-icon">↑</span>
+
+                    <div>
+                        <small>Total Income</small>
+                        <strong>
+                            ₹<span id="summaryIncome">0</span>
+                        </strong>
+                    </div>
+                </div>
+
+
+                <div class="hero-divider"></div>
+
+
+                <div class="hero-stat">
+                    <span class="stat-icon expense-icon">↓</span>
+
+                    <div>
+                        <small>Total Expense</small>
+                        <strong>
+                            ₹<span id="summaryExpense">0</span>
+                        </strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK SUMMARY -->
+        <section class="summary-cards">
+
+            <div class="summary-card income-card">
+
+                <div class="card-top">
+                    <span class="mini-icon">↑</span>
+                    <span>INCOME</span>
+                </div>
+
+                <h3>
+                    ₹<span id="totalIncome">0</span>
+                </h3>
+
+                <p>Money received</p>
+
+            </div>
+
+
+            <div class="summary-card expense-card">
+
+                <div class="card-top">
+                    <span class="mini-icon">↓</span>
+                    <span>EXPENSE</span>
+                </div>
+
+                <h3>
+                    ₹<span id="totalExpense">0</span>
+                </h3>
+
+                <p>Money spent</p>
+
+            </div>
+
+
+            <div class="summary-card balance-small-card">
+
+                <div class="card-top">
+                    <span class="mini-icon">◈</span>
+                    <span>BALANCE</span>
+                </div>
+
+                <h3>
+                    ₹<span id="balance">0</span>
+                </h3>
+
+                <p>Available balance</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD MONEY SECTION -->
+        <section class="forms-grid">
+
+
+            <!-- INCOME -->
+            <div class="form-card income-form-card">
+
+                <div class="form-title">
+
+                    <div class="form-icon income-form-icon">
+                        ↑
+                    </div>
+
+                    <div>
+                        <h2>Add Income</h2>
+                        <p>Record money you received.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="income-form">
+
+                    <label>Income Name</label>
+
+                    <input
+                        type="text"
+                        id="incomeName"
+                        placeholder="e.g. Salary"
+                    >
+
+
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        id="incomeAmount"
+                        placeholder="₹ Enter amount"
+                    >
+
+
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        id="incomeDate"
+                    >
+
+
+                    <button
+                        class="primary-btn income-btn"
+                        onclick="addIncome()"
+                    >
+                        + Add Income
+                    </button>
+
+
+                    <div id="incomeList"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPENSE -->
+            <div class="form-card expense-form-card">
+
+                <div class="form-title">
+
+                    <div class="form-icon expense-form-icon">
+                        ↓
+                    </div>
+
+                    <div>
+                        <h2>Add Expense</h2>
+                        <p>Track where your money goes.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="expense-form">
+
+                    <label>Expense Name</label>
+
+                    <input
+                        type="text"
+                        id="expenseName"
+                        placeholder="e.g. Shopping"
+                    >
+
+
+                    <label>Amount</label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        placeholder="₹ Enter amount"
+                    >
+
+
+                    <label>Category</label>
+
+                    <select id="category">
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="Food">
+                            Food
+                        </option>
+
+                        <option value="Travel">
+                            Travel
+                        </option>
+
+                        <option value="Shopping">
+                            Shopping
+                        </option>
+
+                        <option value="Bills">
+                            Bills
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+
+                    <label>Date</label>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+
+                    <button
+                        class="primary-btn expense-btn"
+                        id="expenseButton"
+                        onclick="addExpense()"
+                    >
+                        + Add Expense
+                    </button>
+
+
+                    <div
+                        class="expense-list"
+                        id="expenseList"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TRANSACTIONS -->
+        <section class="content-card transactions-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-tag">ACTIVITY</span>
+                    <h2>Recent Transactions</h2>
+                    <p>Your latest income and expenses.</p>
+                </div>
+
+                <div class="section-symbol">
+                    ↗
+                </div>
+
+            </div>
+
+
+            <div class="transaction-filters">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search transactions..."
+                >
+
+
+                <div class="date-filter">
+
+                    <label for="filterDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="filterDate"
+                    >
+
+                    <button
+                        class="secondary-btn"
+                        onclick="clearDateFilter()"
+                    >
+                        Clear
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="recentTransactions"></div>
+
+        </section>
+
+
+        <!-- ANALYTICS GRID -->
+        <section class="analytics-grid">
+
+
+            <!-- CATEGORY -->
+            <div class="content-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-tag">ANALYTICS</span>
+                        <h2>Category Summary</h2>
+                        <p>Where your money is going.</p>
+                    </div>
+
+                    <div class="section-symbol">
+                        ◉
+                    </div>
+
+                </div>
+
+                <div id="categorySummary"></div>
+
+            </div>
+
+
+            <!-- OVERVIEW -->
+            <div class="content-card">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-tag">OVERVIEW</span>
+                        <h2>Expense Overview</h2>
+                        <p>Your financial snapshot.</p>
+                    </div>
+
+                    <div class="section-symbol">
+                        ◈
+                    </div>
+
+                </div>
+
+                <div id="expenseOverview"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHART -->
+        <section class="content-card chart-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-tag">SPENDING</span>
+                    <h2>Expense Chart</h2>
+                    <p>Compare spending across categories.</p>
+                </div>
+
+                <div class="chart-badge">
+                    LIVE
+                </div>
+
+            </div>
+
+
+            <div id="expenseChart"></div>
+
+        </section>
+
+
+        <!-- MONTHLY -->
+        <section class="content-card monthly-summary">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-tag">HISTORY</span>
+                    <h2>Monthly Summary</h2>
+                    <p>Track your spending over time.</p>
+                </div>
+
+                <div class="section-symbol">
+                    ◷
+                </div>
+
+            </div>
+
+
+            <div id="monthlySummary"></div>
+
+        </section>
+
+
+        <!-- DANGER ZONE -->
+        <section class="danger-zone">
+
+            <button
+                class="clear-btn"
+                onclick="clearAllData()"
+            >
+                Clear All Data
+            </button>
+
+            <button
+                class="clear-btn"
+                onclick="clearAllExpenses()"
+            >
+                Clear All Expenses
+            </button>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <p>
+                Expense Tracker • Personal Finance Dashboard
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="index01.js"></script>
+
+</body>
+
+</html>
