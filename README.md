@@ -1,5 +1,5 @@
 # 💰 Expense Tracker
-
+![Expense Tracker Project Preview](./ExpenseTracker.png)
 A modern personal finance and expense tracking web application built with **HTML, CSS and JavaScript**.
 
 The project helps users manage their income and expenses, track their balance, analyze spending by category and month, and keep their data saved using browser **LocalStorage**.
